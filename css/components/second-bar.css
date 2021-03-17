@@ -1,0 +1,9 @@
+.second-bar {
+  background-color: #f3f3f3;
+  padding: 20px;
+}
+
+.second-bar span {
+  font-size: 150%;
+  margin-right: 40px;
+}

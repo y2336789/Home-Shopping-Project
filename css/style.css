@@ -1,0 +1,11 @@
+@import "components/screen-header.css";
+@import "components/second-bar.css";
+@import "components/user-bar.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
