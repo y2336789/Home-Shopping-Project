@@ -1,6 +1,8 @@
 @import "components/screen-header.css";
 @import "components/second-bar.css";
 @import "components/user-bar.css";
+@import "fruit.css";
+@import "vegetable.css";
 
 * {
   box-sizing: border-box;
@@ -8,4 +10,12 @@
 
 body {
   margin: 0;
+}
+
+.trademark {
+  text-align: center;
+  width: ;
+}
+
+.trademark img {
 }
