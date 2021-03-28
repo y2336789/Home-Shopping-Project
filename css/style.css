@@ -1,21 +1,37 @@
 @import "components/screen-header.css";
 @import "components/second-bar.css";
 @import "components/user-bar.css";
-@import "fruit.css";
-@import "vegetable.css";
+@import "product.css";
+@import "components/bottom-bar.css";
+@import "signup.css";
 
 * {
   box-sizing: border-box;
+  font-family: "Jua", sans-serif;
 }
 
 body {
   margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+  margin: 20px 0;
 }
 
 .trademark {
   text-align: center;
-  width: ;
 }
 
 .trademark img {
+}
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+.ct3 {
+  background-color: #f7f7f7;
+  width: 100%;
 }

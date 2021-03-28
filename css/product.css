@@ -1,23 +1,15 @@
-.fruit__list {
-  width: 80%;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 70px;
-  margin-left: 150px;
-}
-
-.fruit {
+.product {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.fruit img {
+.product img {
   width: 400px;
   height: 400px;
 }
 
-.fruit span {
+.product span {
   width: 200px;
   margin-left: 160px;
   font-size: 50px;
