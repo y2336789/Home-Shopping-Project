@@ -42,6 +42,10 @@
       a:active {
         text-decoration: none;
       }
+      #Goods{
+        margin-left:auto;
+        margin-right:auto;
+      }
     </style>
   </head>
   <body>
@@ -88,9 +92,100 @@
     <div class="trademark">
       <img src="img/trademark.PNG" width="400" height="200" />
     </div>
-    <div>
-      <h1>과일 상품 준비중입니다.</h1>
-    </div>
+    <!-- 상품 목록 화면 -->
+    <table id="Goods">
+        <tbody>
+          <tr>
+            <td>
+              <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
+                <span id="slabel">1</span><br>
+                <img class="img" src="img/fruit/apples.jpg" id="1" onclick="select()" style="width:100%; height:75%;"><br>
+                <span>사과 5Kg<br>30,000원</span>
+              </div>
+            </td>
+            <td>
+              <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
+                <span id="slabel">2</span><br>
+                <img class="img" src="img/fruit/apples.jpg" id="2" onclick="select()" style="width:100%; height:75%;"><br>
+                <span>사과 10Kg<br>60,000원</span>
+              </div>
+            </td>
+            <td>
+              <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
+                <span id="slabel">3</span><br>
+                <img class="img" src="img/fruit/peach.jpg" id="3" onclick="select()" style="width:100%; height:75%;"><br>
+                <span>복숭아 1Kg<br>25,000원</span>
+              </div>
+            </td>
+            <td><div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
+              <span id="slabel">4</span><br>
+              <img class="img" src="img/fruit/peach.jpg" id="4" onclick="select()" style="width:100%; height:75%;"><br>
+              <span>복숭아 3Kg<br>50,000원</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
+              <span id="slabel">5</span><br>
+              <img class="img" src="img/fruit/grape.jpg" id="5" onclick="select()" style="width:100%; height:75%;"><br>
+              <span>포도 2Kg<br>30,000원</span>
+            </div>
+          </td>
+          <td>
+            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
+              <span id="slabel">6</span><br>
+              <img class="img" src="img/fruit/grape.jpg" id="6" onclick="select()" style="width:100%; height:75%;"><br>
+              <span>포도 4Kg<br>35,000원</span>
+            </div>
+          </td>
+          <td>
+            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
+              <span id="slabel">7</span><br>
+              <img class="img" src="img/fruit/tangerine.jpg" id="7" onclick="select()" style="width:100%; height:75%;"><br>
+              <span>귤 3Kg<br>20,000원</span>
+            </div>
+          </td>
+          <td>
+            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
+              <span id="slabel">8</span><br>
+              <img class="img" src="img/fruit/tangerine.jpg" id="8" onclick="select()" style="width:100%; height:75%;"><br>
+              <span>귤 5Kg<br>30,000원</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)">
+              <span id="slabel">9</span><br>
+              <img class="img" src="img/fruit/kiwi.jpg" id="9" onclick="select()" style="width:100%; height:75%;"><br>
+              <span>키위 2Kg<br>20,000원</span>
+            </div>
+          </td>
+          <td>
+            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)">
+              <span id="slabel">10</span><br>
+              <img class="img" src="img/fruit/kiwi.jpg" id="10" onclick="select()" style="width:100%; height:75%;"><br>
+              <span>키위 5Kg<br>45,000원</span>
+            </div>
+          </td>
+          <td>
+            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
+              <span id="slabel">11</span><br>
+              <img class="img" src="img/fruit/watermelon.jpg" id="11" onclick="select()" style="width:100%; height:75%;"><br>
+              <span>수박 1통<br>20,000원</span>
+            </div>
+          </td>
+          <td>
+            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)">
+              <span id="slabel">12</span><br>
+              <img class="img" src="img/fruit/watermelon.jpg" id="12" onclick="select()" style="width:100%; height:75%;"><br>
+              <span>수박 2통<br>40,000원</span>
+            </div>
+          </td>
+        </tr>
+			</tbody>
+    </table>
     <div class="fixed-bottom">
       <section class="bottom-bar">
         Welcome!</br> This is my own self-introduction homepage.
