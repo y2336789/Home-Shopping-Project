@@ -11,63 +11,171 @@
       integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <!-- 하이퍼링크 밑줄 및 색상 변경 방지 -->
     <style>
-      a { text-decoration: none; color: white; }
-      a:visited { text-decoration: none; }
-      a:hover { text-decoration: none; }
-      a:focus { text-decoration: none; }
-      a:hover, a:active { text-decoration: none; }
-  </style>
-  
-
+      a {
+        text-decoration: none;
+        color: rgb(129, 125, 125);
+      }
+      a:visited {
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      a:focus {
+        text-decoration: none;
+      }
+      a:hover,
+      a:active {
+        text-decoration: none;
+      }
+      #page {
+        margin-left: auto;
+        margin-right: auto;
+        object-fit: cover;
+        height: 200px;
+      }
+      .line {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        font-size: 150%;
+        text-align: center;
+      }
+      .content{
+        text-align: center;
+        text-decoration: black;
+      }
+      .table{
+        margin-left: auto;
+        margin-right: auto;
+        width: 1200px;
+        table-layout: fixed;
+      }
+    </style>
   </head>
+
   <body>
-    <div class="screen-header">
-      <div class="screen-header__column">
-        <!-- 스토어 이름을 누르면 메인화면으로 이동 -->
-        <h1 class="screen-header__title"><a href="index.html">못난 놈들</a></h1> 
-        <div class="search">
-          <!-- 검색 구현해보기 -->
-          <button>
-            <input type="text" placeholder="검색어를 입력하세요..." />
-            <span><i class="fas fa-search"></i></span>
-          </div>
-        </button>
+    <header class="px-3 py-2 bg-dark text-white">
+      <div class="container1">
+        <span><a href="main.html">(주) 못난 놈들</a></span>
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">About Us</a>
+          </li>
+          
+        </ul>
       </div>
-      <!-- 메뉴 클릭 시 각 화면으로 이동 -->
-      <div class="screen-header__column">
-        <a href="singin.html"><span>로그인</span></a>
-        <a href="signup.html"><span>회원가입</span></a>
-        <a href="sales.html"><span>세일</span></a>
-        <a href="event.html"><span>이벤트</span></a>
-        <a href="service.html"><span>고객센터</span></a>
+    </header>
+
+    <div class="px-3 py-2 border-bottom mb-3">
+      <div class="">
+        <form class="search-bar">
+          <input type="search" class="form-control" placeholder="Search..." />
+        </form>
+
+        <div class="text-end">
+          <button type="button" class="btn btn-light text-dark me-2">
+            Login
+          </button>
+          <button type="button" class="btn btn-primary">
+            <a href="signup.html">Sign-up</a>
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="second-bar">
-    </div>
-    <div class="trademark">
-      <img src="img/trademark.PNG"/>
-    </div>
-    <div class="second-bar">
     </div>
     <div class="user-bar">
       <span>비회원님 안녕하세요!</span>
-      <span>마이페이지</span>
-      <span>최근 본 상품</span>
-      <span>장바구니</span>
+      <span><a href="mypage.html">마이페이지</a></span>
+      <span><a href="service.html">고객센터</a></span>
     </div>
 
-    
     <div>
-      <h1>고객센터 준비중입니다.</h1>
+      <h1 style="text-align: center; margin-top: 50px;">공지사항</h><br>
     </div>
+
+    <table class="table">
+      <colgroup>
+        <col width="20%" />
+        <col width="80%" />
+      </colgroup>
+        <thead>
+          <tr style="background-color: ivory;">
+            <th class="line" scope="col">날짜</th>
+            <th class="line" scope="col">제목</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="content"><p>2021.04.20</p></td>
+            <td class="content" style = "cursor:pointer;" onClick = " location.href='notice01.html' " onMouseOver = " window.status = 'notice01.html' " onMouseOut = " window.status = '' ">
+              <p>영정종 스토어 오픈 이벤트!</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="content"><p>2021.04.09</p></td>
+            <td class="content" style = "cursor:pointer;" onClick = " location.href='notice02.html' " onMouseOver = " window.status = 'notice02.html' " onMouseOut = " window.status = '' ">
+            <p>영정종 스토어 오픈예정</p>
+          </td>
+          </tr>
+        </tbody>
+    </table>
     
-    
-  
+
+    <div>
+      <br><h1 style="text-align: center">FAQ</h><br>
+    </div>
+     <table class="table">
+      <colgroup>
+        <col width="20%" />
+        <col width="80%" />
+      </colgroup>
+        <thead>
+          <tr style="background-color: ivory;">
+            <th class="line" scope="col">번호</th>
+            <th class="line" scope="col">제목</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="content"><p>1</p></td>
+            <td class="content" style = "cursor:pointer;" onClick = " location.href='FAQ01.html' " onMouseOver = " window.status = 'FAQ01.html' " onMouseOut = " window.status = '' ">
+              <p><strong>Q.</strong> 배송 조회는 어디서 하나요?</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="content"><p>2</p></td>
+            <td class="content" style = "cursor:pointer;" onClick = " location.href='FAQ02.html' " onMouseOver = " window.status = 'FAQ02.html' " onMouseOut = " window.status = '' ">
+              <p><strong>Q.</strong> 결제한 목록은 어디서 보나요?</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="content"><p>3</p></td>
+            <td class="content" style = "cursor:pointer;" onClick = " location.href='FAQ03.html' " onMouseOver = " window.status = 'FAQ03.html' " onMouseOut = " window.status = '' ">
+              <p><strong>Q.</strong> 반품 신청은 어떻게 하나요?</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="content"><p>4</p></td>
+            <td class="content" style = "cursor:pointer;" onClick = " location.href='FAQ04.html' " onMouseOver = " window.status = 'FAQ04.html' " onMouseOut = " window.status = '' ">
+              <p><strong>Q.</strong> 상품 배송은 얼마나 걸리나요?</p>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"
       crossorigin="anonymous"
