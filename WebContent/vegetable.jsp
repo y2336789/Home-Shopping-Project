@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ page import="vp.VpDAO" %> 
+<%@ page import="java.sql.ResultSet" %>
 <!DOCTYPE html>
 <HTML>
 <HEAD>
@@ -125,99 +127,31 @@
     </div>
     <div>
       <!-- 상품 목록 화면 -->
-    <table id="Goods">
-      <tbody>
-        <tr>
-          <td>
-            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-              <span id="slabel">1</span><br>
-              <img class="img" src="img/vege/carrots.jpg" id="1" onclick="select()" style="width:100%; height:75%;"><br>
-              <span>당근 2Kg<br>10,000원</span>
-            </div>
-          </td>
-          <td>
-            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-              <span id="slabel">2</span><br>
-              <img class="img" src="img/vege/carrots.jpg" id="2" onclick="select()" style="width:100%; height:75%;"><br>
-              <span>당근 5Kg<br>20,000원</span>
-            </div>
-          </td>
-          <td>
-            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-              <span id="slabel">3</span><br>
-              <img class="img" src="img/vege/garlic.jpg" id="3" onclick="select()" style="width:100%; height:75%;"><br>
-              <span>마늘 1Kg<br>10,000원</span>
-            </div>
-          </td>
-          <td><div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-            <span id="slabel">4</span><br>
-            <img class="img" src="img/vege/garlic.jpg" id="4" onclick="select()" style="width:100%; height:75%;"><br>
-            <span>마늘 3Kg<br>30,000원</span>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-            <span id="slabel">5</span><br>
-            <img class="img" src="img/vege/cucumber.jpg" id="5" onclick="select()" style="width:100%; height:75%;"><br>
-            <span>오이 3Kg<br>10,000원</span>
-          </div>
-        </td>
-        <td>
-          <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-            <span id="slabel">6</span><br>
-            <img class="img" src="img/vege/cucumber.jpg" id="6" onclick="select()" style="width:100%; height:75%;"><br>
-            <span>오이 5Kg<br>15,000원</span>
-          </div>
-        </td>
-        <td>
-          <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-            <span id="slabel">7</span><br>
-            <img class="img" src="img/vege/paprika.jpg" id="7" onclick="select()" style="width:100%; height:75%;"><br>
-            <span>파프리카 3Kg<br>40,000원</span>
-          </div>
-        </td>
-        <td>
-          <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-            <span id="slabel">8</span><br>
-            <img class="img" src="img/vege/paprika.jpg" id="8" onclick="select()" style="width:100%; height:75%;"><br>
-            <span>파프리카 5Kg<br>60,000원</span>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)">
-            <span id="slabel">9</span><br>
-            <img class="img" src="img/vege/tomato.jpg" id="9" onclick="select()" style="width:100%; height:75%;"><br>
-            <span>방울토마토 2Kg<br>50,000원</span>
-          </div>
-        </td>
-        <td>
-          <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)">
-            <span id="slabel">10</span><br>
-            <img class="img" src="img/vege/tomato.jpg" id="10" onclick="select()" style="width:100%; height:75%;"><br>
-            <span>방울토마토 5Kg<br>50,000원</span>
-          </div>
-        </td>
-        <td>
-          <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-            <span id="slabel">11</span><br>
-            <img class="img" src="img/vege/sweetpotato.jpg" id="11" onclick="select()" style="width:100%; height:75%;"><br>
-            <span>고구마 3Kg<br>15,000원</span>
-          </div>
-        </td>
-        <td>
-          <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)">
-            <span id="slabel">12</span><br>
-            <img class="img" src="img/vege/sweetpotato.jpg" id="12" onclick="select()" style="width:100%; height:75%;"><br>
-            <span>고구마 5Kg<br>20,000원</span>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+   	<% VpDAO vpDAO = new VpDAO();
+    	ResultSet rs;
+    	int i = 0, k = 0;
+        int rows = vpDAO.GetVpcount();
+    	int count = 0;
+    	rs = vpDAO.BringVpData();            // 데이터 베이스에서 board 테이블에 저장된 데이터를 가져옴
+    	
+    	
+        String[] vpName = new String[rows];
+        String[] vpPrice = new String[rows];
+        String[] vpPicture = new String[rows];
+        
+        while (rs.next())
+        {
+            vpName[i] = rs.getString("name");
+            vpPrice[i] = rs.getString("price");
+            vpPicture[i] = rs.getString("img");
+            i++;
+        }
+  	%>
+  	<%for(i=0; i<rows; i++){ %>
+	  <div>
+	  <%=vpName[i] %> <%=vpPrice[i] %>원 <img src="<%=vpPicture[i] %>"/>
+	  </div>
+	  <%}%>
     </div>
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"

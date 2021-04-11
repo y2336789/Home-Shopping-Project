@@ -162,7 +162,6 @@
     </section>
     </div>
   </div>
-    </div>
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"
       crossorigin="anonymous"

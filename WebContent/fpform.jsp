@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-    
-    
+<%@ page import="fp.FpDAO" %> 
+<%@ page import="java.sql.ResultSet" %>
+
+
 <!DOCTYPE html>
 <HTML>
 <HEAD>
@@ -130,7 +132,7 @@
 <BODY>
 	 <header class="px-3 py-2 bg-dark text-white">
       <div class="container1">
-        <span><a href="./index.jsp">(주) 못난 놈들</a></span>
+        <span><a href="index.jsp">(주) 못난 놈들</a></span>
         <ul class="nav justify-content-end">
           <li class="nav-item">
             <a class="nav-link" href="./service.jsp">고객센터</a>
@@ -151,19 +153,20 @@
 		if(session.getAttribute("userID") != null){
 			userID=(String)session.getAttribute("userID");
 			%>
-			<button type="button" class="btn btn-light text-dark me-2 login" onclick="location.href='./logout.jsp'">
+			<button type="button" class="btn btn-light text-dark me-2 login" onclick="location.href='logout.jsp'">
           	Log Out</button>
 			<%
 		}
 		else{
 			%>
-			<button type="button" class="btn btn-light text-dark me-2 login" onclick="location.href='./login.html'">
+			<button type="button" class="btn btn-light text-dark me-2 login" onclick="location.href='login.html'">
           	Login
           </button>
           <button type="button" class="btn btn-primary" onclick="location.href='register.html'">Sign-up</button>
 			<%
 		}
 	%>
+          
         </div>
       </div>
     </div>
@@ -182,7 +185,7 @@
 			<%
 		}
 	%></span>
-	   <span>
+      <span>
       <%
 		if(session.getAttribute("userID") != null){
 			userID=(String)session.getAttribute("userID");
@@ -198,54 +201,12 @@
 	  %></span>
       <span>장바구니</span>
     </div>
-    <!-- 로고 다시 만들기-->
-    <!-- 상품 목록 화면 -->
-    <div class="recommend_book">
-      <div class="recommend_book__cover">
-        <img
-          class="img"
-          src="./img/fruit/apples.jpg"
-          onclick="select()"
-          style="width: 600px; height: 600px"
-        />
-      </div>
-      <div class="recommend_book__info">
-        <div class="recommend_book__title"><h2>사과 5Kg</h2></div>
-        <div class="recommend_book__author">
-          	단단하고 맛있는 영양 넘치는 꿀사과
-        </div>
-        <div class="line">
-          <span class="fruit_setting">배송구분</span>
-          <span class="fruit_setting2">샛별배송 / 택배배송</span>
-        </div>
-        <div class="line">
-          <span class="fruit_setting">원산지 </span>
-          <span class="fruit_setting2 where"> 국내산</span>
-        </div>
-        <div class="line">
-          <span class="fruit_setting">유통기한</span>
-          <span class="fruit_setting2">최대한 빠르게 섭취 부탁드립니다.</span>
-        </div>
-        <div class="line">
-          <span class="fruit_setting">포장타입</span>
-          <span class="fruit_setting2">냉장 / 종이포장</span>
-        </div>
-        <div class="line">
-          <span class="fruit_setting">당도</span>
-          <span class="fruit_setting2 setting_sweet">13.4 brix 이상</span>
-        </div>
-        <div class="line">
-          <span class="fruit_setting">가격</span>
-          <span class="fruit_setting2 setting_sweet">30,000원</span>
-        </div>
-        <div class="last">
-          <div class="buttons">
-            <button class="btn_cart">장바구니</button>
-            <button class="btn_pur">구매하기</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    
+    <% 
+    	String aa= request.getParameter("index");
+    	System.out.println(aa);
+
+  	%>
 
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"
@@ -253,3 +214,4 @@
     ></script>
   </body>
 </html>
+    

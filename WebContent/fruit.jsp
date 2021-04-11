@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ page import="fp.FpDAO" %> 
+<%@ page import="java.sql.ResultSet" %>
+
 <!DOCTYPE html>
 <HTML>
 <HEAD>
@@ -124,99 +127,35 @@
       <img src="img/trademark.PNG" width="400" height="200" />
     </div>
     <!-- 상품 목록 화면 -->
-    <table id="Goods">
-        <tbody>
-          <tr>
-            <td>
-              <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-                <span id="slabel">1</span><br>
-                <a href="./apple.jsp"><img class="img" src="img/fruit/apples.jpg" id="1" onclick="select()" style="width:100%; height:75%;"></a><br>
-                <span>사과 5Kg<br>30,000원</span>
-              </div>
-            </td>
-            <td>
-              <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-                <span id="slabel">2</span><br>
-                <a href="./apple10.jsp"><img class="img" src="img/fruit/apples.jpg" id="2" onclick="select()" style="width:100%; height:75%;"></a><br>
-                <span>사과 10Kg<br>60,000원</span>
-              </div>
-            </td>
-            <td>
-              <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-                <span id="slabel">3</span><br>
-                <a href="./peach.jsp"><img class="img" src="img/fruit/peach.jpg" id="3" onclick="select()" style="width:100%; height:75%;"></a><br>
-                <span>복숭아 1Kg<br>25,000원</span>
-              </div>
-            </td>
-            <td><div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-              <span id="slabel">4</span><br>
-              <a href="./peach3.jsp"><img class="img" src="img/fruit/peach.jpg" id="4" onclick="select()" style="width:100%; height:75%;"></a><br>
-              <span>복숭아 3Kg<br>50,000원</span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-              <span id="slabel">5</span><br>
-              <a href="./grape.jsp"><img class="img" src="img/fruit/grape.jpg" id="5" onclick="select()" style="width:100%; height:75%;"></a><br>
-              <span>포도 2Kg<br>30,000원</span>
-            </div>
-          </td>
-          <td>
-            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-              <span id="slabel">6</span><br>
-              <a href="./grape4.jsp"><img class="img" src="img/fruit/grape.jpg" id="6" onclick="select()" style="width:100%; height:75%;"></a><br>
-              <span>포도 4Kg<br>35,000원</span>
-            </div>
-          </td>
-          <td>
-            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-              <span id="slabel">7</span><br>
-              <img class="img" src="img/fruit/tangerine.jpg" id="7" onclick="select()" style="width:100%; height:75%;"><br>
-              <span>귤 3Kg<br>20,000원</span>
-            </div>
-          </td>
-          <td>
-            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-              <span id="slabel">8</span><br>
-              <img class="img" src="img/fruit/tangerine.jpg" id="8" onclick="select()" style="width:100%; height:75%;"><br>
-              <span>귤 5Kg<br>30,000원</span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)">
-              <span id="slabel">9</span><br>
-              <img class="img" src="img/fruit/kiwi.jpg" id="9" onclick="select()" style="width:100%; height:75%;"><br>
-              <span>키위 2Kg<br>20,000원</span>
-            </div>
-          </td>
-          <td>
-            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)">
-              <span id="slabel">10</span><br>
-              <img class="img" src="img/fruit/kiwi.jpg" id="10" onclick="select()" style="width:100%; height:75%;"><br>
-              <span>키위 5Kg<br>45,000원</span>
-            </div>
-          </td>
-          <td>
-            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" style="">
-              <span id="slabel">11</span><br>
-              <img class="img" src="img/fruit/watermelon.jpg" id="11" onclick="select()" style="width:100%; height:75%;"><br>
-              <span>수박 1통<br>20,000원</span>
-            </div>
-          </td>
-          <td>
-            <div class="row" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)">
-              <span id="slabel">12</span><br>
-              <img class="img" src="img/fruit/watermelon.jpg" id="12" onclick="select()" style="width:100%; height:75%;"><br>
-              <span>수박 2통<br>40,000원</span>
-            </div>
-          </td>
-        </tr>
-			</tbody>
-    </table>
+    
+    <% FpDAO fpDAO = new FpDAO();
+    	ResultSet rs;
+    	int i = 0, k = 0;
+        int rows = fpDAO.GetFpcount();
+    	int count = 0;
+    	int index = 0;
+    	rs = fpDAO.BringFpData();            // 데이터 베이스에서 board 테이블에 저장된 데이터를 가져옴
+    	
+    	
+        String[] fpName = new String[rows];
+        String[] fpPrice = new String[rows];
+        String[] fpPicture = new String[rows];
+        
+        while (rs.next())
+        {
+            fpName[i] = rs.getString("name");
+            fpPrice[i] = rs.getString("price");
+            fpPicture[i] = rs.getString("img");
+            i++;
+        }
+  	%>
+  	<%for(i=0; i<rows; i++){ %>
+	  <div>
+	  <a href="./fpform.jsp?index=i"><%=fpName[i] %> <%=fpPrice[i] %>원 <img src="<%=fpPicture[i] %>"/></a>
+	  </div>
+	  <%}%>
+
+    
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"
       crossorigin="anonymous"
