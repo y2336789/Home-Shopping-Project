@@ -1,0 +1,68 @@
+@import "components/screen-header.css";
+@import "components/second-bar.css";
+@import "components/user-bar.css";
+@import "product.css";
+@import "components/bottom-bar.css";
+@import "fruit.css";
+
+* {
+  box-sizing: border-box;
+  font-family: "Jua", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.trademark {
+  text-align: center;
+}
+
+.trademark img {
+}
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+.ct3 {
+  background-color: #f7f7f7;
+  width: 100%;
+}
+
+.recommend_book {
+  display: flex;
+  width: 90%;
+  margin-top: 50px;
+}
+
+.recommend_book__info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  height: 550px;
+}
+.recommend_book__title {
+  display: flex;
+}
+
+.recommend_book__author {
+  color: rgba(0, 0, 0, 0.3);
+  margin-top: 5px;
+}
+
+.recommend_book__btn1 {
+  margin-top: 20px;
+}
+
+button {
+  border: none;
+  font-weight: bold;
+}
+
