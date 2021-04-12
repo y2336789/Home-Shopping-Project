@@ -201,12 +201,85 @@
 	  %></span>
       <span>장바구니</span>
     </div>
-    
+    	
     <% 
-    	String aa= request.getParameter("index");
-    	System.out.println(aa);
-
+    	FpDAO fpDAO = new FpDAO();
+    	ResultSet rs;
+    	int i = 0, k = 0;
+    	int rows = fpDAO.GetFpcount();
+    	int count = 0;
+    	int index = 0;
   	%>
+  	
+  	<%  
+  	    String findex = request.getParameter("index");
+  		String tag = request.getParameter("tag");
+  	    rs = fpDAO.GetlineFp(findex);
+  	    String fname = null;
+  	    String fprice = null;
+  	    String img =  null;
+		while(rs.next()) {
+			fname = rs.getString("name");
+		    fprice = rs.getString("price");
+			img = rs.getString("img");
+		}
+  	%>
+  	<div class="recommend_book">
+      <div class="recommend_book__cover">
+        <img
+          class="img"
+          src="<%=img %>"
+          onclick="select()"
+          style="width: 600px; height: 600px"
+        />
+      </div>
+  	<div class="recommend_book__info">
+        <div class="recommend_book__title"><h2><%=fname %></h2></div>
+        <div class="line">
+          <span class="fruit_setting">배송구분</span>
+          <span class="fruit_setting2">샛별배송 / 택배배송</span>
+        </div>
+        <div class="line">
+          <span class="fruit_setting">원산지 </span>
+          <span class="fruit_setting2 where"> 국내산</span>
+        </div>
+        <div class="line">
+          <span class="fruit_setting">유통기한</span>
+          <span class="fruit_setting2">최대한 빠르게 섭취 부탁드립니다.</span>
+        </div>
+        <div class="line">
+          <span class="fruit_setting">포장타입</span>
+          <span class="fruit_setting2">냉장 / 종이포장</span>
+        </div>
+        <div class="line">
+          <span class="fruit_setting">당도</span>
+          <span class="fruit_setting2 setting_sweet">13.4 brix 이상</span>
+        </div>
+        <div class="line">
+          <span class="fruit_setting">가격</span>
+          <span class="fruit_setting2 setting_sweet"><%=fprice %>원</span>
+        </div>
+        <div class="last">
+          <div class="buttons">
+          <%
+		if(session.getAttribute("userID") != null){
+			userID=(String)session.getAttribute("userID");
+			%>
+			  <button class="btn_cart" onclick="location.href='./upload.jsp?index=<%=findex %>&tag=<%=tag%>'">장바구니</button>
+			<%
+		}
+		else{
+			%>
+			  <button class="btn_cart" onclick="alert('로그인이 필요합니다!');">장바구니</button>
+			<%
+			}
+		  %>
+            
+            <button class="btn_pur">구매하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"

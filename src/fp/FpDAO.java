@@ -24,7 +24,7 @@ public class FpDAO {
 		}
 	}
 	public ResultSet BringFpData(){
-		String SQL = "SELECT name, price, img FROM fp";
+		String SQL = "SELECT id, name, price, img FROM fp";
 		try {
 			pstmt = conn.prepareStatement(SQL); // pstmt에 받아오고
 			rs = pstmt.executeQuery(); // SQL 결과 값을 받와서 rs에 저장!
@@ -38,7 +38,7 @@ public class FpDAO {
 	}
 	 public int GetFpcount() {
 	        int count = 2;
-	        String SQL = "SELECT name, price, img FROM fp";
+	        String SQL = "SELECT id, name, price, img FROM fp";
 	        //SQL = SQL + "'" + memberID + "'";
 	        try {
 	        pstmt = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -54,4 +54,18 @@ public class FpDAO {
 	        System.out.println("GetBasketcount DB 버그있음");
 	        return count;
 	    }
+	 public ResultSet GetlineFp(String line) {
+		 String SQL = "SELECT id, name, price, img FROM fp WHERE id='";
+		 SQL = SQL + line +"'";	//
+		 try {
+			pstmt = conn.prepareStatement(SQL); // pstmt에 받아오고
+			rs = pstmt.executeQuery(); // SQL 결과 값을 받와서 rs에 저장!
+			return rs;
+		 } catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("버그");
+		 }
+		 System.out.println("버그");
+		 return rs;
+	 }
 }

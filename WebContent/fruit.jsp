@@ -136,13 +136,14 @@
     	int index = 0;
     	rs = fpDAO.BringFpData();            // 데이터 베이스에서 board 테이블에 저장된 데이터를 가져옴
     	
-    	
+    	String[] fpid = new String[rows];
         String[] fpName = new String[rows];
         String[] fpPrice = new String[rows];
         String[] fpPicture = new String[rows];
         
         while (rs.next())
         {
+        	fpid[i] = rs.getString("id");
             fpName[i] = rs.getString("name");
             fpPrice[i] = rs.getString("price");
             fpPicture[i] = rs.getString("img");
@@ -151,7 +152,7 @@
   	%>
   	<%for(i=0; i<rows; i++){ %>
 	  <div>
-	  <a href="./fpform.jsp?index=i"><%=fpName[i] %> <%=fpPrice[i] %>원 <img src="<%=fpPicture[i] %>"/></a>
+	  <a href="./fpform.jsp?index=<%=fpid[i] %>&tag=fp"><%=fpName[i] %> <%=fpPrice[i] %>원 <img src="<%=fpPicture[i] %>"/></a>
 	  </div>
 	  <%}%>
 

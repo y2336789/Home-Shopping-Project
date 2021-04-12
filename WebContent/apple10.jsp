@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <HTML>
@@ -6,7 +6,7 @@
 	<meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>¿µÁ¤Á¾ ½ºÅä¾î</title>
+    <title>ì˜ì •ì¢… ìŠ¤í† ì–´</title>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
@@ -128,10 +128,10 @@
 <BODY>
 	 <header class="px-3 py-2 bg-dark text-white">
       <div class="container1">
-        <span><a href="./index.jsp">(ÁÖ) ¸ø³­ ³ðµé</a></span>
+        <span><a href="./index.jsp">(ì£¼) ëª»ë‚œ ë†ˆë“¤</a></span>
         <ul class="nav justify-content-end">
           <li class="nav-item">
-            <a class="nav-link" href="./service.jsp">°í°´¼¾ÅÍ</a>
+            <a class="nav-link" href="./service.jsp">ê³ ê°ì„¼í„°</a>
           </li>
         </ul>
       </div>
@@ -171,12 +171,12 @@
 		if(session.getAttribute("userID") != null){
 			userID=(String)session.getAttribute("userID");
 			%>
-			<span>${userID}</span>´Ô ¾È³çÇÏ¼¼¿ä!
+			<span>${userID}</span>ë‹˜ ì•ˆë…•í•˜ì„¸ìš”!
 			<%
 		}
 		else{
 			%>
-			ºñÈ¸¿ø´Ô ¾È³çÇÏ¼¼¿ä!
+			ë¹„íšŒì›ë‹˜ ì•ˆë…•í•˜ì„¸ìš”!
 			<%
 		}
 	%></span>
@@ -185,19 +185,19 @@
 		if(session.getAttribute("userID") != null){
 			userID=(String)session.getAttribute("userID");
 			%>
-			<span class="ab_mypage"><a href="./mypage.jsp">¸¶ÀÌÆäÀÌÁö</a></span>
+			<span class="ab_mypage"><a href="./mypage.jsp">ë§ˆì´íŽ˜ì´ì§€</a></span>
 			<%
 		}
 		else{
 			%>
-			<span class="ab_mypage"><a href="./login.html">¸¶ÀÌÆäÀÌÁö</a></span>
+			<span class="ab_mypage"><a href="./login.html">ë§ˆì´íŽ˜ì´ì§€</a></span>
 			<%
 		}
 	  %></span>
-      <span>Àå¹Ù±¸´Ï</span>
+      <span>ìž¥ë°”êµ¬ë‹ˆ</span>
     </div>
-    <!-- ·Î°í ´Ù½Ã ¸¸µé±â-->
-    <!-- »óÇ° ¸ñ·Ï È­¸é -->
+    <!-- ë¡œê³  ë‹¤ì‹œ ë§Œë“¤ê¸°-->
+    <!-- ìƒí’ˆ ëª©ë¡ í™”ë©´ -->
     <div class="recommend_book">
       <div class="recommend_book__cover">
         <img
@@ -208,38 +208,38 @@
         />
       </div>
       <div class="recommend_book__info">
-        <div class="recommend_book__title"><h2>»ç°ú 10Kg</h2></div>
+        <div class="recommend_book__title"><h2>ì‚¬ê³¼ 10Kg</h2></div>
         <div class="recommend_book__author">
-          	´Ü´ÜÇÏ°í ¸ÀÀÖ´Â ¿µ¾ç ³ÑÄ¡´Â ²Ü»ç°ú
+          	ë‹¨ë‹¨í•˜ê³  ë§›ìžˆëŠ” ì˜ì–‘ ë„˜ì¹˜ëŠ” ê¿€ì‚¬ê³¼
         </div>
         <div class="line">
-          <span class="fruit_setting">¹è¼Û±¸ºÐ</span>
-          <span class="fruit_setting2">»ûº°¹è¼Û / ÅÃ¹è¹è¼Û</span>
+          <span class="fruit_setting">ë°°ì†¡êµ¬ë¶„</span>
+          <span class="fruit_setting2">ìƒ›ë³„ë°°ì†¡ / íƒë°°ë°°ì†¡</span>
         </div>
         <div class="line">
-          <span class="fruit_setting">¿ø»êÁö </span>
-          <span class="fruit_setting2 where"> ±¹³»»ê</span>
+          <span class="fruit_setting">ì›ì‚°ì§€ </span>
+          <span class="fruit_setting2 where"> êµ­ë‚´ì‚°</span>
         </div>
         <div class="line">
-          <span class="fruit_setting">À¯Åë±âÇÑ</span>
-          <span class="fruit_setting2">ÃÖ´ëÇÑ ºü¸£°Ô ¼·Ãë ºÎÅ¹µå¸³´Ï´Ù.</span>
+          <span class="fruit_setting">ìœ í†µê¸°í•œ</span>
+          <span class="fruit_setting2">ìµœëŒ€í•œ ë¹ ë¥´ê²Œ ì„­ì·¨ ë¶€íƒë“œë¦½ë‹ˆë‹¤.</span>
         </div>
         <div class="line">
-          <span class="fruit_setting">Æ÷ÀåÅ¸ÀÔ</span>
-          <span class="fruit_setting2">³ÃÀå / Á¾ÀÌÆ÷Àå</span>
+          <span class="fruit_setting">í¬ìž¥íƒ€ìž…</span>
+          <span class="fruit_setting2">ëƒ‰ìž¥ / ì¢…ì´í¬ìž¥</span>
         </div>
         <div class="line">
-          <span class="fruit_setting">´çµµ</span>
-          <span class="fruit_setting2 setting_sweet">13.4 brix ÀÌ»ó</span>
+          <span class="fruit_setting">ë‹¹ë„</span>
+          <span class="fruit_setting2 setting_sweet">13.4 brix ì´ìƒ</span>
         </div>
         <div class="line">
-          <span class="fruit_setting">°¡°Ý</span>
-          <span class="fruit_setting2 setting_sweet">60,000¿ø</span>
+          <span class="fruit_setting">ê°€ê²©</span>
+          <span class="fruit_setting2 setting_sweet">60,000ì›</span>
         </div>
         <div class="last">
           <div class="buttons">
-            <button class="btn_cart">Àå¹Ù±¸´Ï</button>
-            <button class="btn_pur">±¸¸ÅÇÏ±â</button>
+            <button class="btn_cart">ìž¥ë°”êµ¬ë‹ˆ</button>
+            <button class="btn_pur">êµ¬ë§¤í•˜ê¸°</button>
           </div>
         </div>
       </div>
