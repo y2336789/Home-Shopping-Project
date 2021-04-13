@@ -74,6 +74,18 @@
       body {
         background-color: #f7f7f7;
       }
+      .bottom-bar {
+	    background-color: black;
+	    height: 80px;
+	    text-align: center;
+	    padding-top: 10px;
+	    font-size: 20px;
+	    color: white;
+	  }
+	  .up_bar {
+	  	background-color: black;
+	  	height: 50px;
+	  }
     </style>
 </HEAD>
 <BODY>
@@ -145,7 +157,19 @@
 			<%
 		}
 	  %></span>
-      <span>장바구니</span>
+      <span><%
+		if(session.getAttribute("userID") != null){
+			userID=(String)session.getAttribute("userID");
+			%>
+			<span class="ab_mypage"><a href="./Cart.jsp">장바구니</a></span>
+			<%
+		}
+		else{
+			%>
+			<span class="ab_mypage"><a href="./login.html">장바구니</a></span>
+			<%
+		}
+	  %></span>
     </div>
     <div class="slidebox">
 	<input type="radio" name="slide" id="slide01" checked>
@@ -186,7 +210,7 @@
 		</div>
 	</div>
 </div>
-    
+    <div class="up_bar"> </div>
     <h2 style="margin-top: 100px; font-size: 50px;">사고 싶은 품목을 누르세요!</h2>
     
     
@@ -229,6 +253,11 @@
     </section>
     </div>
   </div>
+      <div>
+      <section class="bottom-bar">
+        2021 OpenSource Web-Software, Made by YYJ, KJH, KJS </br> @ Copyright 2021. 양영재. ALL RIGHTS RESERVED.
+      </section>
+    </div>
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"
       crossorigin="anonymous"

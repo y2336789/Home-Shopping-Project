@@ -121,7 +121,19 @@
 			<%
 		}
 	  %></span>
-      <span>장바구니</span>
+      <span><%
+		if(session.getAttribute("userID") != null){
+			userID=(String)session.getAttribute("userID");
+			%>
+			<span class="ab_mypage"><a href="./Cart.jsp">장바구니</a></span>
+			<%
+		}
+		else{
+			%>
+			<span class="ab_mypage"><a href="./login.html">장바구니</a></span>
+			<%
+		}
+	  %></span>
     </div>
     <div class="trademark">
       <img src="img/trademark.PNG" width="400" height="200" />
