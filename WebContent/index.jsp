@@ -26,6 +26,31 @@
     />
     <link rel="stylesheet" href="./css/style.css" />
 	<style>
+	* {margin:0;padding:0;box-sizing:border-box;}
+	ul, li {list-style:none;}
+	
+	
+	.slidebox {max-width:800px;margin:0 auto;position:relative;}
+	.slidebox .slidelist {position:relative;white-space:nowrap;font-size:0;overflow:hidden;}
+	.slidebox .slidelist .slideitem {position:relative;display:inline-block;vertical-align:middle;background-color:#fff;width:100%;transition:all 1s;}
+	.slidebox .slidelist .slideitem > a {display:block;width:auto;position:relative;}
+	.slidebox .slidelist .slideitem > a img {max-width:100%;}
+	
+	.slidebox .slide-control [class*="control"] label {position:absolute;z-index:10;top:50%;transform:translateY(-50%);padding:20px;border-radius:50%;cursor:pointer;}
+	.slidebox .slide-control [class*="control"] label.prev {left:-50px;background:#333 url('./img/left-arrow.png') center center / 50% no-repeat;}
+	.slidebox .slide-control [class*="control"] label.next {right:-50px;background:#333 url('./img/right-arrow.png') center center / 50% no-repeat;}
+	
+	[name="slide"] {display:none;}
+	#slide01:checked ~ .slidelist .slideitem {left:0;}
+	#slide02:checked ~ .slidelist .slideitem {left:-100%;}
+	#slide03:checked ~ .slidelist .slideitem {left:-200%;}
+	#slide04:checked ~ .slidelist .slideitem {left:-305%;}
+	
+	.slide-control [class*="control"] {display:none;}
+	#slide01:checked ~ .slide-control .control01 {display:block;}
+	#slide02:checked ~ .slide-control .control02 {display:block;}
+	#slide03:checked ~ .slide-control .control03 {display:block;}
+	#slide04:checked ~ .slide-control .control04 {display:block;}
       a {
         text-decoration: none;
         color: white;
@@ -45,6 +70,9 @@
       }
       .ab_mypage a{
         color: black;
+      }
+      body {
+        background-color: #f7f7f7;
       }
     </style>
 </HEAD>
@@ -119,10 +147,49 @@
 	  %></span>
       <span>장바구니</span>
     </div>
-    <div class="trademark">
-      <img src="img/trademark.PNG" width="400" height="200" />
-    </div>
-    <h2>사고 싶은 품목을 누르세요!</h2>
+    <div class="slidebox">
+	<input type="radio" name="slide" id="slide01" checked>
+	<input type="radio" name="slide" id="slide02">
+	<input type="radio" name="slide" id="slide03">
+	<input type="radio" name="slide" id="slide04">
+	<ul class="slidelist">
+		<li class="slideitem">
+			<a><img src="./img/trademark.PNG" width="800" height="650"></a>
+		</li>
+		<li class="slideitem">
+			<a><img src="./img/event2.PNG" width="800" height="650"></a>
+		</li>
+		<li class="slideitem">
+			<a><img src="./img/event1.PNG" width="800" height="650"></a>
+		</li>
+		<li class="slideitem">
+			<a><img src="./img/event3.PNG" width="800" height="650"></a>
+		</li>
+		
+	</ul>
+	<div class="slide-control">
+		<div class="control01">
+			<label for="slide04" class="prev"></label>
+			<label for="slide02" class="next"></label>
+		</div>
+		<div class="control02">
+			<label for="slide01" class="prev"></label>
+			<label for="slide03" class="next"></label>
+		</div>
+		<div class="control03">
+			<label for="slide02" class="prev"></label>
+			<label for="slide04" class="next"></label>
+		</div>
+		<div class="control04">
+			<label for="slide03" class="prev"></label>
+			<label for="slide01" class="next"></label>
+		</div>
+	</div>
+</div>
+    
+    <h2 style="margin-top: 100px; font-size: 50px;">사고 싶은 품목을 누르세요!</h2>
+    
+    
     <div class="ct3">
     <div class="container py-5" id="custom-cards">
      

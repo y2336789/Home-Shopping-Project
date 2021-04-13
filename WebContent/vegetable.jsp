@@ -132,15 +132,17 @@
     	int i = 0, k = 0;
         int rows = vpDAO.GetVpcount();
     	int count = 0;
+    	int index = 0;
     	rs = vpDAO.BringVpData();            // 데이터 베이스에서 board 테이블에 저장된 데이터를 가져옴
     	
-    	
+    	String[] vpid = new String[rows];
         String[] vpName = new String[rows];
         String[] vpPrice = new String[rows];
         String[] vpPicture = new String[rows];
         
         while (rs.next())
         {
+        	vpid[i] = rs.getString("id");
             vpName[i] = rs.getString("name");
             vpPrice[i] = rs.getString("price");
             vpPicture[i] = rs.getString("img");
@@ -149,7 +151,7 @@
   	%>
   	<%for(i=0; i<rows; i++){ %>
 	  <div>
-	  <%=vpName[i] %> <%=vpPrice[i] %>원 <img src="<%=vpPicture[i] %>"/>
+	  <a href="./vpform.jsp?index=<%=vpid[i] %>&tag=vp"><%=vpName[i] %> <%=vpPrice[i] %>원 <img src="<%=vpPicture[i] %>"/></a>
 	  </div>
 	  <%}%>
     </div>

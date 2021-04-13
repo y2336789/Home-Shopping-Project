@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<%@ page import="fp.FpDAO" %> 
+<%@ page import="vp.VpDAO" %> 
 <%@ page import="java.sql.ResultSet" %>
+
 
 <!DOCTYPE html>
 <HTML>
@@ -46,7 +47,84 @@
       a:active {
         text-decoration: none;
       }
-      .ab_mypage a{
+      .fruit_setting {
+		  display: flex;
+		  align-items: center;
+		  font-size: 20px;
+		  margin-top: 15px;
+		  margin-left: 50px;
+		}
+		
+		.fruit_setting2 {
+		  display: flex;
+		  align-items: center;
+		  margin-left: 100px;
+		  font-size: 20px;
+		  margin-top: 15px;
+		}
+		
+		.where {
+		  margin-left: 115px;
+		}
+		
+		.line {
+		  display: flex;
+		  width: 500px;
+		  height: 45px;
+		  border-top: solid gainsboro;
+		  margin-top: 20px;
+		  
+		}
+		
+		.last {
+		  margin-top: 15px;
+		}
+		
+		.buttons {
+		  margin-top: 30px;
+		  display: flex;
+		  justify-content: center;
+		}
+		
+		.buttons button {
+		  width: 150px;
+		  font-size: 40px;
+		  margin-left: 50px;
+		}
+		
+		.recommend_book {
+		  display: flex;
+		  width: 90%;
+		  margin-top: 50px;
+		  margin-left: 20%;
+		}
+		
+		.recommend_book__info {
+		  display: flex;
+		  flex-direction: column;
+		  height: 550px;
+		}
+		.recommend_book__title {
+		  display: flex;
+		}
+		
+		.recommend_book__author {
+		  color: rgba(0, 0, 0, 0.3);
+		  margin-top: 5px;
+		}
+		
+		.recommend_book__btn1 {
+		  margin-top: 20px;
+		}
+		
+		button {
+		  border: none;
+		  font-weight: bold;
+		}
+		.setting_sweet{
+		  padding-left: 35px;
+		}
+		.ab_mypage a{
         color: black;
       }
     </style>
@@ -123,43 +201,86 @@
 	  %></span>
       <span>장바구니</span>
     </div>
-    <div class="trademark">
-      <img src="img/trademark.PNG" width="400" height="200" />
-    </div>
-    <!-- 상품 목록 화면 -->
-    
-    <% FpDAO fpDAO = new FpDAO();
+    	
+    <% 
+    	VpDAO fpDAO = new VpDAO();
     	ResultSet rs;
     	int i = 0, k = 0;
-        int rows = fpDAO.GetFpcount();
+    	int rows = fpDAO.GetVpcount();
     	int count = 0;
     	int index = 0;
-    	rs = fpDAO.BringFpData();            // 데이터 베이스에서 board 테이블에 저장된 데이터를 가져옴
-    	
-    	String[] fpid = new String[rows];
-        String[] fpName = new String[rows];
-        String[] fpPrice = new String[rows];
-        String[] fpPicture = new String[rows];
-        
-        while (rs.next())
-        {
-        	fpid[i] = rs.getString("id");
-            fpName[i] = rs.getString("name");
-            fpPrice[i] = rs.getString("price");
-            fpPicture[i] = rs.getString("img");
-            i++;
-        }
   	%>
-  	<%for(i=0; i<rows; i++){ %>
-	  <div>
-	  <a href="./form.jsp?index=<%=fpid[i] %>&tag=fp"><%=fpName[i] %> <%=fpPrice[i] %>원 <img src="<%=fpPicture[i] %>"/></a>
-	  </div>
-	  <%}%>
+  	
+  	<%  
+  	    String vindex = request.getParameter("index");
+  		String tag = request.getParameter("tag");
+  	    rs = fpDAO.GetlineVp(vindex);
+  	    String vname = null;
+  	    String vprice = null;
+  	    String img =  null;
+		while(rs.next()) {
+			vname = rs.getString("name");
+		    vprice = rs.getString("price");
+			img = rs.getString("img");
+		}
+  	%>
+  	<div class="recommend_book">
+      <div class="recommend_book__cover">
+        <img
+          class="img"
+          src="<%=img %>"
+          onclick="select()"
+          style="width: 600px; height: 600px"
+        />
+      </div>
+  	<div class="recommend_book__info">
+        <div class="recommend_book__title"><h2><%=vname %></h2></div>
+        <div class="line">
+          <span class="fruit_setting">배송구분</span>
+          <span class="fruit_setting2">샛별배송 / 택배배송</span>
+        </div>
+        <div class="line">
+          <span class="fruit_setting">원산지 </span>
+          <span class="fruit_setting2 where"> 국내산</span>
+        </div>
+        <div class="line">
+          <span class="fruit_setting">유통기한</span>
+          <span class="fruit_setting2">최대한 빠르게 섭취 부탁드립니다.</span>
+        </div>
+        <div class="line">
+          <span class="fruit_setting">포장타입</span>
+          <span class="fruit_setting2">상온 / 종이포장</span>
+        </div>
+        <div class="line">
+          <span class="fruit_setting">가격</span>
+          <span class="fruit_setting2 setting_sweet"><%=vprice %>원</span>
+        </div>
+        <div class="last">
+          <div class="buttons">
+          <%
+		if(session.getAttribute("userID") != null){
+			userID=(String)session.getAttribute("userID");
+			%>
+			  <button class="btn_cart" onclick="location.href='./upload.jsp?index=<%=vindex %>&tag=<%=tag%>'">장바구니</button>
+			<%
+		}
+		else{
+			%>
+			  <button class="btn_cart" onclick="alert('로그인이 필요합니다!');">장바구니</button>
+			<%
+			}
+		  %>
+            
+            <button class="btn_pur">구매하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"
       crossorigin="anonymous"
     ></script>
   </body>
 </html>
+    

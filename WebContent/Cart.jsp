@@ -18,6 +18,7 @@
 
 <% 
 	FpDAO fpDAO = new FpDAO();
+	VpDAO vpDAO = new VpDAO();
 	CartDAO cartDAO = new CartDAO();
 	ResultSet rs;
 	
@@ -54,6 +55,12 @@
     		}
     		break;
     	case "vp":
+    		rs = vpDAO.GetlineVp(productid[j]);
+    		
+    		while(rs.next()) {
+    			productname[j] = rs.getString("name");
+    			img[j] = rs.getString("img");
+    		}
     		break;
     	}
     } 

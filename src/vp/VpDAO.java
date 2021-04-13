@@ -24,7 +24,7 @@ public class VpDAO {
 		}
 	}
 	public ResultSet BringVpData(){
-		String SQL = "SELECT name, price, img FROM vp";
+		String SQL = "SELECT id, name, price, img FROM vp";
 		try {
 			pstmt = conn.prepareStatement(SQL); // pstmt에 받아오고
 			rs = pstmt.executeQuery(); // SQL 결과 값을 받와서 rs에 저장!
@@ -38,7 +38,7 @@ public class VpDAO {
 	}
 	public int GetVpcount() {
         int count = 2;
-        String SQL = "SELECT name, price, img FROM vp";
+        String SQL = "SELECT id, name, price, img FROM vp";
         //SQL = SQL + "'" + memberID + "'";
         try {
         pstmt = conn.prepareStatement(SQL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -54,5 +54,20 @@ public class VpDAO {
         System.out.println("GetBasketcount DB 버그있음");
         return count;
     }
-
+	 public ResultSet GetlineVp(String line) {
+		 String SQL = "SELECT id, name, price, img FROM vp WHERE id='";
+		 SQL = SQL + line +"'";	// 채소 db 중 라인번호와 일치하는 id 값을 가진 db정보만 딱 한줄 가져옴
+		 try {
+			pstmt = conn.prepareStatement(SQL); // pstmt에 받아오고
+			rs = pstmt.executeQuery(); // SQL 결과 값을 받와서 rs에 저장!
+			return rs;
+		 } catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("버그");
+		 }
+		 System.out.println("버그");
+		 return rs;
+	 }
+	
+	
 }
