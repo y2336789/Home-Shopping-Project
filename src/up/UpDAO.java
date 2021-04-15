@@ -54,7 +54,7 @@ public class UpDAO {
 	        System.out.println("GetBasketcount DB 버그있음");
 	        return count;
 	    }
-	 public ResultSet GetlineFp(String line) {
+	 public ResultSet GetlineUp(String line) {
 		 String SQL = "SELECT id, name, price, img FROM up WHERE id='";
 		 SQL = SQL + line +"'";	//
 		 try {

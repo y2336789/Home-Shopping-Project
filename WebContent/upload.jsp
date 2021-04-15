@@ -2,6 +2,9 @@
     pageEncoding="EUC-KR"%>
 <%@ page import="fp.FpDAO" %> 
 <%@ page import="vp.VpDAO" %>
+<%@ page import="sp.SpDAO" %>
+<%@ page import="jp.JpDAO" %>
+<%@ page import="up.UpDAO" %>
 <%@ page import="user.UserDAO" %>
 <%@ page import="cart.CartDAO" %>
 <%@ page import="java.sql.ResultSet" %>
@@ -36,6 +39,33 @@
 		case "vp":
 			VpDAO vpDAO = new VpDAO();
 			rs = vpDAO.GetlineVp(index);
+			while(rs.next()) {
+				id = rs.getString("id");
+				price = rs.getString("price");
+				img = rs.getString("img");
+			}
+			break;
+		case "sp":
+			SpDAO spDAO = new SpDAO();
+			rs= spDAO.GetlineSp(index);
+			while(rs.next()) {
+				id = rs.getString("id");
+				price = rs.getString("price");
+				img = rs.getString("img");
+			}
+			break;
+		case "jp":
+			JpDAO jpDAO = new JpDAO();
+			rs= jpDAO.GetlineJp(index);
+			while(rs.next()) {
+				id = rs.getString("id");
+				price = rs.getString("price");
+				img = rs.getString("img");	
+			}
+			break;
+		case "up":
+			UpDAO upDAO = new UpDAO();
+			rs = upDAO.GetlineUp(index);
 			while(rs.next()) {
 				id = rs.getString("id");
 				price = rs.getString("price");

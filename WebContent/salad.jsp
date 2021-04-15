@@ -183,8 +183,8 @@
 			for(i=0; i<(rows/2); i++){ %>
 			<tr>
 			<% for(int j=0;j<2;j++) {%>
-				<td class="textcontent"><a href="./spform.jsp?index=<%=spid[a] %>&tag=up"><%=spName[a] %><br><%=spPrice[a] %>¿ø </a></td>
-				<td class="imgcontent"><a href="./spform.jsp?index=<%=spid[a] %>&tag=up"><img src="<%=spPicture[a] %>" width="320" height="200"/></a></td>
+				<td class="textcontent"><a href="./spform.jsp?index=<%=spid[a] %>&tag=sp"><%=spName[a] %><br><%=spPrice[a] %>¿ø </a></td>
+				<td class="imgcontent"><a href="./spform.jsp?index=<%=spid[a] %>&tag=sp"><img src="<%=spPicture[a] %>" width="320" height="200"/></a></td>
 			<%
 			a++;
 			}%>

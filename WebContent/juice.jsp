@@ -183,8 +183,8 @@
 			for(i=0; i<(rows/2); i++){ %>
 			<tr>
 			<% for(int j=0;j<2;j++) {%>
-				<td class="textcontent"><a href="./jpform.jsp?index=<%=jpid[a] %>&tag=up"><%=jpName[a] %><br><%=jpPrice[a] %>¿ø </a></td>
-				<td class="imgcontent"><a href="./jpform.jsp?index=<%=jpid[a] %>&tag=up"><img src="<%=jpPicture[a] %>" width="320" height="200"/></a></td>
+				<td class="textcontent"><a href="./jpform.jsp?index=<%=jpid[a] %>&tag=jp"><%=jpName[a] %><br><%=jpPrice[a] %>¿ø </a></td>
+				<td class="imgcontent"><a href="./jpform.jsp?index=<%=jpid[a] %>&tag=jp"><img src="<%=jpPicture[a] %>" width="320" height="200"/></a></td>
 			<%
 			a++;
 			}%>

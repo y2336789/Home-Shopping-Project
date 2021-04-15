@@ -228,12 +228,12 @@
   	    String findex = request.getParameter("index");
   		String tag = request.getParameter("tag");
   	    rs = jpDAO.GetlineJp(findex);
-  	    String fname = null;
-  	    String fprice = null;
+  	    String jname = null;
+  	    String jprice = null;
   	    String img =  null;
 		while(rs.next()) {
-			fname = rs.getString("name");
-		    fprice = rs.getString("price");
+			jname = rs.getString("name");
+		    jprice = rs.getString("price");
 			img = rs.getString("img");
 		}
   	%>
@@ -247,7 +247,7 @@
         />
       </div>
   	<div class="recommend_book__info">
-        <div class="recommend_book__title"><h2><%=fname %></h2></div>
+        <div class="recommend_book__title"><h2><%=jname %></h2></div>
         <div class="line">
           <span class="fruit_setting">배송구분</span>
           <span class="fruit_setting2">샛별배송 / 택배배송</span>
@@ -266,7 +266,7 @@
         </div>
         <div class="line">
           <span class="fruit_setting">가격</span>
-          <span class="fruit_setting2 setting_sweet"><%=fprice %>원</span>
+          <span class="fruit_setting2 setting_sweet"><%=jprice %>원</span>
         </div>
         <div class="last">
           <div class="buttons">

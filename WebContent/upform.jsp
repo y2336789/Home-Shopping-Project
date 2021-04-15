@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<%@ page import="sp.SpDAO" %> 
+<%@ page import="up.UpDAO" %> 
 <%@ page import="java.sql.ResultSet" %>
 
 
@@ -216,24 +216,24 @@
     </div>
     	
     <% 
-    	SpDAO spDAO = new SpDAO();
+    	UpDAO upDAO = new UpDAO();
     	ResultSet rs;
     	int i = 0, k = 0;
-    	int rows = spDAO.GetSpcount();
+    	int rows = upDAO.GetUpcount();
     	int count = 0;
     	int index = 0;
   	%>
   	
   	<%  
-  	    String sindex = request.getParameter("index");
+  	    String uindex = request.getParameter("index");
   		String tag = request.getParameter("tag");
-  	    rs = spDAO.GetlineSp(sindex);
-  	    String sname = null;
-  	    String sprice = null;
+  	    rs = upDAO.GetlineUp(uindex);
+  	    String jname = null;
+  	    String jprice = null;
   	    String img =  null;
 		while(rs.next()) {
-			sname = rs.getString("name");
-		    sprice = rs.getString("price");
+			jname = rs.getString("name");
+		    jprice = rs.getString("price");
 			img = rs.getString("img");
 		}
   	%>
@@ -247,7 +247,7 @@
         />
       </div>
   	<div class="recommend_book__info">
-        <div class="recommend_book__title"><h2><%=sname %></h2></div>
+        <div class="recommend_book__title"><h2><%=jname %></h2></div>
         <div class="line">
           <span class="fruit_setting">배송구분</span>
           <span class="fruit_setting2">샛별배송 / 택배배송</span>
@@ -266,7 +266,7 @@
         </div>
         <div class="line">
           <span class="fruit_setting">가격</span>
-          <span class="fruit_setting2 setting_sweet"><%=sprice %>원</span>
+          <span class="fruit_setting2 setting_sweet"><%=jprice %>원</span>
         </div>
         <div class="last">
           <div class="buttons">
@@ -274,7 +274,7 @@
 		if(session.getAttribute("userID") != null){
 			userID=(String)session.getAttribute("userID");
 			%>
-			  <button class="btn_cart" onclick="location.href='./upload.jsp?index=<%=sindex %>&tag=<%=tag%>'">장바구니</button>
+			  <button class="btn_cart" onclick="location.href='./upload.jsp?index=<%=uindex %>&tag=<%=tag%>'">장바구니</button>
 			<%
 		}
 		else{

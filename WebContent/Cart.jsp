@@ -3,6 +3,9 @@
 <%@ page import="cart.CartDAO" %> 
 <%@ page import="fp.FpDAO" %>
 <%@ page import="vp.VpDAO" %>
+<%@ page import="sp.SpDAO" %>
+<%@ page import="up.UpDAO" %>
+<%@ page import="jp.JpDAO" %>
 <%@ page import="java.sql.ResultSet" %>
 <!DOCTYPE html>
 <HTML>
@@ -79,6 +82,13 @@
 	  .cart_body{
 		text-align :center;
 		border-bottom: 2px solid rgb(194, 190, 165);
+	  }
+	  .buy_btn {
+	  	display: flex;
+	  	justify-content: center;
+	  	margin-top: 50px;
+	  	margin-left: 550px;
+	  	font-size: 50px;
 	  }
     </style>
 </HEAD>
@@ -178,6 +188,9 @@
 <% 
 	FpDAO fpDAO = new FpDAO();
 	VpDAO vpDAO = new VpDAO();
+	SpDAO spDAO = new SpDAO();
+	JpDAO jpDAO = new JpDAO();
+	UpDAO upDAO = new UpDAO();
 	CartDAO cartDAO = new CartDAO();
 	ResultSet rs;
 	
@@ -221,8 +234,32 @@
     			img[j] = rs.getString("img");
     		}
     		break;
-    	}
-    } 
+    	case "sp":
+    		rs = spDAO.GetlineSp(productid[j]);
+    		
+    		while(rs.next()){
+    			productname[j] = rs.getString("name");
+    			img[j] = rs.getString("img");
+    		}
+    		break;
+    	case "jp":
+			rs = jpDAO.GetlineJp(productid[j]);
+    		
+    		while(rs.next()){
+    			productname[j] = rs.getString("name");
+    			img[j] = rs.getString("img");
+    		}
+    		break;
+    	case "up":
+    		rs = upDAO.GetlineUp(productid[j]);
+    		
+    		while(rs.next()) {
+    			productname[j] = rs.getString("name");
+    			img[j] = rs.getString("img");
+    		}
+    		break;
+    }
+ }
    %>
 	<h2>장바구니</h2>
 	<div class="cart_table">
@@ -263,7 +300,9 @@
 		 <%}%>
 		</tbody>
 		</table>
+			<button class="buy_btn">구매하기</button>
 		</div>
+		
  <div>
       <section class="bottom-bar">
         2021 OpenSource Web-Software, Made by YYJ, KJH, KJS </br> @ Copyright 2021. 양영재. ALL RIGHTS RESERVED.
