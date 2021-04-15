@@ -30,7 +30,7 @@
 	<style>
       a {
         text-decoration: none;
-        color: white;
+        color: rgb(129, 125, 125);
       }
       a:visited {
         text-decoration: none;
@@ -161,11 +161,42 @@
             i++;
         }
   	%>
-  	<%for(i=0; i<rows; i++){ %>
-	  <div>
-	  <a href="./vpform.jsp?index=<%=vpid[i] %>&tag=vp"><%=vpName[i] %> <%=vpPrice[i] %>원 <img src="<%=vpPicture[i] %>"/></a>
-	  </div>
-	  <%}%>
+  	
+  	<table class="table">
+      <colgroup>
+        <col width="20%" />
+        <col width="30%" />
+        <col width="20%" />
+        <col width="30%" />
+      </colgroup>
+		<thead>
+				<tr style="background-color: ivory;">
+					<th class="line" scope="col">상품명</th>
+					<th class="line" scope="col">이미지</th>
+					<th class="line" scope="col">상품명</th>
+					<th class="line" scope="col">이미지</th>
+				</tr>
+			</thead>
+			<tbody>
+			<%
+			int a=0;
+			for(i=0; i<(rows/2); i++){ %>	
+			<tr>
+			<% for(int j=0;j<2;j++) {%>
+				<td class="textcontent"><a href="./vpform.jsp?index=<%=vpid[ a] %>&tag=vp"><%=vpName[a] %><br><%=vpPrice[a] %>원 </a></td>
+				<td class="imgcontent"><a href="./vpform.jsp?index=<%=vpid[a] %>&tag=vp"><img src="<%=vpPicture[a] %>" width="320" height="200"/></a></td>
+			<%
+			a++;
+			}%>
+			</tr>
+			<%}%>
+ 		</tbody>
+  	</table>
+  	<div>
+      <section class="bottom-bar">
+        2021 OpenSource Web-Software, Made by YYJ, KJH, KJS </br> @ Copyright 2021. 양영재. ALL RIGHTS RESERVED.
+      </section>
+    </div>
     </div>
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"

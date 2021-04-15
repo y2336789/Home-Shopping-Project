@@ -30,6 +30,9 @@
     />
     <link rel="stylesheet" href="./css/style.css" />
 	<style>
+ 	*{
+		box-sizing: border-box;
+	}
       a {
         text-decoration: none;
         color: white;
@@ -69,11 +72,10 @@
 		
 		.line {
 		  display: flex;
-		  width: 500px;
+		  width: 100%;
 		  height: 45px;
 		  border-top: solid gainsboro;
 		  margin-top: 20px;
-		  
 		}
 		
 		.last {
@@ -96,7 +98,6 @@
 		  display: flex;
 		  width: 90%;
 		  margin-top: 50px;
-		  margin-left: 20%;
 		}
 		
 		.recommend_book__info {
@@ -116,7 +117,9 @@
 		.recommend_book__btn1 {
 		  margin-top: 20px;
 		}
-		
+		.recommend_book__cover{
+			margin-left: 400px;
+		}
 		button {
 		  border: none;
 		  font-weight: bold;
@@ -127,6 +130,16 @@
 		.ab_mypage a{
         color: black;
       }
+      .bottom-bar {
+			background-color: black;
+			height: 80px;
+			text-align: center;
+			padding-top: 10px;
+			font-size: 20px;
+			color: white;
+			margin-top: 100px;
+		}
+      
     </style>
 </HEAD>
 <BODY>
@@ -215,10 +228,10 @@
     </div>
     	
     <% 
-    	VpDAO fpDAO = new VpDAO();
+    	VpDAO vpDAO = new VpDAO();
     	ResultSet rs;
     	int i = 0, k = 0;
-    	int rows = fpDAO.GetVpcount();
+    	int rows = vpDAO.GetVpcount();
     	int count = 0;
     	int index = 0;
   	%>
@@ -226,7 +239,7 @@
   	<%  
   	    String vindex = request.getParameter("index");
   		String tag = request.getParameter("tag");
-  	    rs = fpDAO.GetlineVp(vindex);
+  	    rs = vpDAO.GetlineVp(vindex);
   	    String vname = null;
   	    String vprice = null;
   	    String img =  null;
@@ -288,6 +301,13 @@
         </div>
       </div>
     </div>
+    
+        <div>
+      <section class="bottom-bar">
+        2021 OpenSource Web-Software, Made by YYJ, KJH, KJS </br> @ Copyright 2021. ¾ç¿µÀç. ALL RIGHTS RESERVED.
+      </section>
+    </div>
+    
 
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"

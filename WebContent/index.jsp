@@ -243,8 +243,28 @@
           <div class="card card-cover">
             <div>
               <div class="ugly-fruit product">
-                <a href="ugly-fruit.html"><img src="./img/ugly.PNG" /></a>
+                <a href="ugly.jsp"><img src="./img/ugly.PNG" /></a>
                 <span id="title">못난이 과일</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card card-cover">
+            <div>
+              <div class="juice product">
+                <a href="juice.jsp"><img src="./img/juice.JPG" /></a>
+                <span id="title">주스</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card card-cover">
+            <div>
+              <div class="salad product">
+                <a href="salad.jsp"><img src="./img/salad.JPG" /></a>
+                <span id="title">셀러드</span>
               </div>
             </div>
           </div>

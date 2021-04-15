@@ -7,16 +7,16 @@ public class Vp {
 	private String vegePrice;
 	private String vegeImg;
 	
-	public int getvegeID() {
+	public int getVegeID() {
 		return vegeID;
 	}
-	public String getvegeName( ) {
+	public String getVegeName( ) {
 		return vegeName;
 	}
-	public String getvegePrice() {
+	public String getVegePrice() {
 		return vegePrice;
 	}
-	public String getvegeImg() {
+	public String getVegeImg() {
 		return vegeImg;
 	}
 

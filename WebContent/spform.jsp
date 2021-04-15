@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<%@ page import="fp.FpDAO" %> 
+<%@ page import="sp.SpDAO" %> 
 <%@ page import="java.sql.ResultSet" %>
 
 
@@ -30,6 +30,9 @@
     />
     <link rel="stylesheet" href="./css/style.css" />
 	<style>
+	*{
+		box-sizing: border-box;
+	}
       a {
         text-decoration: none;
         color: white;
@@ -69,11 +72,10 @@
 		
 		.line {
 		  display: flex;
-		  width: 500px;
+		  width: 100%;
 		  height: 45px;
 		  border-top: solid gainsboro;
 		  margin-top: 20px;
-		  
 		}
 		
 		.last {
@@ -96,7 +98,6 @@
 		  display: flex;
 		  width: 90%;
 		  margin-top: 50px;
-		  margin-left: 20%;
 		}
 		
 		.recommend_book__info {
@@ -116,7 +117,9 @@
 		.recommend_book__btn1 {
 		  margin-top: 20px;
 		}
-		
+		.recommend_book__cover{
+			margin-left: 400px;
+		}
 		button {
 		  border: none;
 		  font-weight: bold;
@@ -128,14 +131,15 @@
         color: black;
       }
       .bottom-bar {
-	background-color: black;
-	height: 80px;
-	text-align: center;
-	padding-top: 10px;
-	font-size: 20px;
-	color: white;
-	margin-top:50px;
-}
+			background-color: black;
+			height: 80px;
+			text-align: center;
+			padding-top: 10px;
+			font-size: 20px;
+			color: white;
+			margin-top: 100px;
+		}
+      
     </style>
 </HEAD>
 <BODY>
@@ -208,26 +212,14 @@
 			<%
 		}
 	  %></span>
-      <span><%
-		if(session.getAttribute("userID") != null){
-			userID=(String)session.getAttribute("userID");
-			%>
-			<span class="ab_mypage"><a href="./Cart.jsp">장바구니</a></span>
-			<%
-		}
-		else{
-			%>
-			<span class="ab_mypage"><a href="./login.html">장바구니</a></span>
-			<%
-		}
-	  %></span>
+      <span>장바구니</span>
     </div>
     	
     <% 
-    	FpDAO fpDAO = new FpDAO();
+    	SpDAO spDAO = new SpDAO();
     	ResultSet rs;
     	int i = 0, k = 0;
-    	int rows = fpDAO.GetFpcount();
+    	int rows = spDAO.GetSpcount();
     	int count = 0;
     	int index = 0;
   	%>
@@ -235,7 +227,7 @@
   	<%  
   	    String findex = request.getParameter("index");
   		String tag = request.getParameter("tag");
-  	    rs = fpDAO.GetlineFp(findex);
+  	    rs = spDAO.GetlineSp(findex);
   	    String fname = null;
   	    String fprice = null;
   	    String img =  null;
@@ -273,10 +265,6 @@
           <span class="fruit_setting2">냉장 / 종이포장</span>
         </div>
         <div class="line">
-          <span class="fruit_setting">당도</span>
-          <span class="fruit_setting2 setting_sweet">13.4 brix 이상</span>
-        </div>
-        <div class="line">
           <span class="fruit_setting">가격</span>
           <span class="fruit_setting2 setting_sweet"><%=fprice %>원</span>
         </div>
@@ -301,13 +289,11 @@
         </div>
       </div>
     </div>
-    
         <div>
       <section class="bottom-bar">
         2021 OpenSource Web-Software, Made by YYJ, KJH, KJS </br> @ Copyright 2021. 양영재. ALL RIGHTS RESERVED.
       </section>
     </div>
-    
 
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"

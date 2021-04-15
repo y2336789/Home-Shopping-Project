@@ -64,6 +64,14 @@
         border-top: 1px solid black;
         border-bottom: 1px solid black;
         }
+        .bottom-bar {
+	background-color: black;
+	height: 80px;
+	text-align: center;
+	padding-top: 10px;
+	font-size: 20px;
+	color: white;
+}
     </style>
 </HEAD>
 <BODY>
@@ -164,23 +172,23 @@
           </colgroup>
         <thead>
             <tr class="line">
-                <td style="border-right:1px solid black;">
+                <td style="border-right:1px solid black; background-color: ivory;">
                     <p>제목</p>
                 </td>
                 <td colspan="5"><P>영정종 스토어 오픈 이벤트!</P></td>
             </tr>
             <tr class="line">
-                <td style="border-right:1px solid black;">작성자</td>
+                <td style="border-right:1px solid black; background-color: ivory;">작성자</td>
                 <td style="border-right:1px solid black;">영정종 스토어</td>
-                <td style="border-right:1px solid black;">작성일</td>
-                <td>2021.04.20</td>
+                <td style="border-right:1px solid black; background-color: ivory;">작성일</td>
+                <td>2021.04.18</td>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td colspan="6">
                     <br><p>안녕하세요!<strong> 영정종 스토어입니다!</strong></p><br>
-                    <p>다가오는 4월 20일! 저희 영정종 스토어가 오픈 예정입니다!</p><br>
+                    <p>다가오는 4월 19일! 저희 영정종 스토어가 오픈 예정입니다!</p><br>
                     <p>저희 온라인 쇼핑몰은 농산물을 판매하는 업체이며,</p><br>
                     <p>과일과 채소뿐만 아니라 못난이 과일 또한 판매할 예정입니다.</p><br>
                     <p><strong>못난이 과일</strong>이란, 당도와 같은 상품성은 기존의 과일과 같지만</p><br>
@@ -188,11 +196,17 @@
                     <p>외관은 이쁘지 않지만, 맛은 다른 상품과 동일하다고 볼 수 있습니다.</p><br>
                     <p>따라서, 기존의 상품보다 저렴한 가격으로 같은 품질의 과일을 즐기실 수 있을 것입니다.</p><br>
                     <p>저희 영정종 스토어에 많은 관심 부탁드립니다.</p><br>
-                    <p>2021년 4월 20일에 뵙도록 하겠습니다. 감사합니다!</p><br>
+                    <p>2021년 4월 19일에 뵙도록 하겠습니다. 감사합니다!</p><br>
                 </td>
             </tr>
         </tbody>
     </table>
+    
+        <div>
+      <section class="bottom-bar">
+        2021 OpenSource Web-Software, Made by YYJ, KJH, KJS </br> @ Copyright 2021. 양영재. ALL RIGHTS RESERVED.
+      </section>
+    </div>
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"
       crossorigin="anonymous"

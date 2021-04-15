@@ -64,6 +64,14 @@
         border-top: 1px solid black;
         border-bottom: 1px solid black;
         }
+        .bottom-bar {
+	background-color: black;
+	height: 80px;
+	text-align: center;
+	padding-top: 10px;
+	font-size: 20px;
+	color: white;
+}
     </style>
 </HEAD>
 <BODY>
@@ -156,7 +164,7 @@
     <table class="table">
         <thead>
             <tr class="line">
-                <td><h2><strong>Q.</strong>상품 배송은 얼마나 걸리나요?</h2></td>
+                <td style="background-color: ivory;"><h2><strong>Q.</strong>상품 배송은 얼마나 걸리나요?</h2></td>
             </tr>
         </thead>
         <tbody>
@@ -170,6 +178,12 @@
             </tr>
         </tbody>
     </table>
+    
+        <div>
+      <section class="bottom-bar">
+        2021 OpenSource Web-Software, Made by YYJ, KJH, KJS </br> @ Copyright 2021. 양영재. ALL RIGHTS RESERVED.
+      </section>
+    </div>
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"
       crossorigin="anonymous"

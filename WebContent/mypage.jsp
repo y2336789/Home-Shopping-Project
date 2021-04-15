@@ -72,6 +72,15 @@
       	position: absolute;
   	    left: 47%;
       }
+      .bottom-bar {
+      clear:both;
+		background-color: black;
+		height: 80px;
+		text-align: center;
+		padding-top: 10px;
+		font-size: 20px;
+		color: white;
+		}
     </style>
 </HEAD>
 <BODY>
@@ -219,9 +228,15 @@
         <br><span>등록된 1:1문의가 없습니다.</span><br>
     </p>
     
-    <span style="float: right; margin-right: 100px; margin-bottom: 100px; margin-top: 30px;">
+    <span style=" float: right; margin-right: 100px; margin-bottom: 100px; margin-top: 30px;">
       <button id="request_btn" type="button" style="font-size: 30px;" onclick="alert('준비중인 서비스 입니다.')" >문의하기</button>
     </span>
+    
+    <div>
+      <section class="bottom-bar">
+        2021 OpenSource Web-Software, Made by YYJ, KJH, KJS </br> @ Copyright 2021. 양영재. ALL RIGHTS RESERVED.
+      </section>
+    </div>
 
     
 

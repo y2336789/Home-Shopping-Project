@@ -51,7 +51,11 @@
         color: black;
       }
       .cart_table{
-      	margin-left: 200px;
+      	margin-left:auto;
+      	margin-right:auto;
+		width: 1200px;
+		table-layout: fixed;
+		
       }
       .rest_table{
       	padding-left: 200px;
@@ -64,6 +68,17 @@
 	    font-size: 20px;
 	    color: white;
 	    margin-top: 200px;
+	  }
+	  .cart_head{
+		text-align :center;
+		font-size:150%;
+		background-color: ivory;
+		border-bottom: 2px solid rgb(194, 190, 165);
+		border-top: 2px solid rgb(194, 190, 165);
+	  }
+	  .cart_body{
+		text-align :center;
+		border-bottom: 2px solid rgb(194, 190, 165);
 	  }
     </style>
 </HEAD>
@@ -212,38 +227,43 @@
 	<h2>장바구니</h2>
 	<div class="cart_table">
 		<table>
+		
+	      <colgroup>
+	        <col width="10%" />
+	        <col width="20%" />
+	        <col width="20%" />
+	        <col width="20%" />
+	        <col width="10%" />
+	        <col width="10%" />
+	        <col width="10%" />
+	      </colgroup>
 		<thead>
-		  <tr>
-	           <th width="200">상품 key값</th>
-	           <th width="400">상품 이미지</th>
-		       <th width="200">상품정보</th>
-		       <th width="200">상품금액</th>
-		       <th width="200">구매자</th>
-		       <th width="200">상품 선택</th>
-		       <th width="200">삭제</th>
+		  <tr class="cart_head">
+	           <th style="border-right: 1px solid rgb(194, 190, 165);">상품 key값</th>
+	           <th>상품 이미지</th>
+		       <th>상품정보</th>
+		       <th>상품금액</th>
+		       <th>구매자</th>
+		       <th>상품 선택</th>
+		       <th>삭제</th>
 		</tr>
 		</thead>
+		<tbody>
+		<%for(i=0; i<rows; i++){ %>	
+	        <tr class="cart_body">
+	          <td style="border-right: 1px solid rgb(194, 190, 165);"><%=productid[i] %></td>
+	          <td><img src="<%=img[i]%>" width="320px" height="200px"></td>
+	          <td><%=productname[i] %></td>
+	          <td><%=price[i] %>원</td>
+	          <td>${userID}</td>
+	          <td><input type="checkbox" /></td> 
+	          <td>
+	   			<button type="button" onclick="location.href='./Delete.html'">삭제</button></td>
+	        </tr> 
+		 <%}%>
+		</tbody>
 		</table>
 		</div>
-		<%for(i=0; i<rows; i++){ %>	
-		<div class="cart_table">
-			<table>
-			<thead>
-	        <tr>
-	          <th width="200"><%=productid[i] %></th>
-	          <th width="400"><img src="<%=img[i]%>" width="300px" height="300px"></th>
-	          <th width="200"><%=productname[i] %></th>
-	          <th width="200"><%=price[i] %>원</th>
-	          <th width="200">${userID}</th>
-	          <th width="200"><input type="checkbox" /></th> 
-	          <th>
-	   			<button type="button" onclick="location.href='./Delete.html'">삭제</button></th>
-	        </tr>
-		</thead>		       
-      </table>
-     </div>
- 
- <%}%>
  <div>
       <section class="bottom-bar">
         2021 OpenSource Web-Software, Made by YYJ, KJH, KJS </br> @ Copyright 2021. 양영재. ALL RIGHTS RESERVED.

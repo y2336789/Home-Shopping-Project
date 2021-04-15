@@ -61,9 +61,17 @@
           text-align: center;
         }
         .line{
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
+	        border-top: 1px solid black;
+	        border-bottom: 1px solid black;
         }
+        .bottom-bar {
+			background-color: black;
+			height: 80px;
+			text-align: center;
+			padding-top: 10px;
+			font-size: 20px;
+			color: white;
+}
     </style>
 </HEAD>
 <BODY>
@@ -164,16 +172,16 @@
           </colgroup>
         <thead>
             <tr class="line">
-                <td style="border-right:1px solid black;">
+                <td style="border-right:1px solid black; background-color: ivory;">
                     <p>제목</p>
                 </td>
                 <td colspan="5"><P>영정종 스토어 오픈 이벤트!</P></td>
             </tr>
             <tr class="line">
-                <td style="border-right:1px solid black;">작성자</td>
+                <td style="border-right:1px solid black; background-color: ivory;">작성자</td>
                 <td style="border-right:1px solid black;">영정종 스토어</td>
-                <td style="border-right:1px solid black;">작성일</td>
-                <td>2021.04.20</td>
+                <td style="border-right:1px solid black; background-color: ivory;">작성일</td>
+                <td>2021.04.19</td>
 
             </tr>
         </thead>
@@ -191,6 +199,12 @@
             </tr>
         </tbody>
     </table>
+    
+        <div>
+      <section class="bottom-bar">
+        2021 OpenSource Web-Software, Made by YYJ, KJH, KJS </br> @ Copyright 2021. 양영재. ALL RIGHTS RESERVED.
+      </section>
+    </div>
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"
       crossorigin="anonymous"

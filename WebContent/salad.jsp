@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<%@ page import="fp.FpDAO" %> 
+<%@ page import="sp.SpDAO" %> 
 <%@ page import="java.sql.ResultSet" %>
-
 <!DOCTYPE html>
 <HTML>
 <HEAD>
@@ -138,27 +137,27 @@
     <div class="trademark">
       <img src="img/trademark.PNG" width="400" height="200" />
     </div>
-    <!-- 상품 목록 화면 -->
-    
-    <% FpDAO fpDAO = new FpDAO();
+    <div>
+      <!-- 상품 목록 화면 -->
+   	<% SpDAO spDAO = new SpDAO();
     	ResultSet rs;
     	int i = 0, k = 0;
-        int rows = fpDAO.GetFpcount();
+        int rows = spDAO.GetSpcount();
     	int count = 0;
     	int index = 0;
-    	rs = fpDAO.BringFpData(); // 데이터 베이스에서 board 테이블에 저장된 데이터를 가져옴
+    	rs = spDAO.BringSpData();            // 데이터 베이스에서 board 테이블에 저장된 데이터를 가져옴
     	
-    	String[] fpid = new String[rows];
-        String[] fpName = new String[rows];
-        String[] fpPrice = new String[rows];
-        String[] fpPicture = new String[rows];
+    	String[] spid = new String[rows];
+        String[] spName = new String[rows];
+        String[] spPrice = new String[rows];
+        String[] spPicture = new String[rows];
         
         while (rs.next())
         {
-        	fpid[i] = rs.getString("id");
-            fpName[i] = rs.getString("name");
-            fpPrice[i] = rs.getString("price");
-            fpPicture[i] = rs.getString("img");
+        	spid[i] = rs.getString("id");
+            spName[i] = rs.getString("name");
+            spPrice[i] = rs.getString("price");
+            spPicture[i] = rs.getString("img");
             i++;
         }
   	%>
@@ -184,8 +183,8 @@
 			for(i=0; i<(rows/2); i++){ %>
 			<tr>
 			<% for(int j=0;j<2;j++) {%>
-				<td class="textcontent"><a href="./fpform.jsp?index=<%=fpid[a] %>&tag=fp"><%=fpName[a] %><br><%=fpPrice[a] %>원 </a></td>
-				<td class="imgcontent"><a href="./fpform.jsp?index=<%=fpid[a] %>&tag=fp"><img src="<%=fpPicture[a] %>" width="320" height="200"/></a></td>
+				<td class="textcontent"><a href="./spform.jsp?index=<%=spid[a] %>&tag=up"><%=spName[a] %><br><%=spPrice[a] %>원 </a></td>
+				<td class="imgcontent"><a href="./spform.jsp?index=<%=spid[a] %>&tag=up"><img src="<%=spPicture[a] %>" width="320" height="200"/></a></td>
 			<%
 			a++;
 			}%>
@@ -198,9 +197,7 @@
         2021 OpenSource Web-Software, Made by YYJ, KJH, KJS </br> @ Copyright 2021. 양영재. ALL RIGHTS RESERVED.
       </section>
     </div>
-  	
-
-    
+    </div>
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"
       crossorigin="anonymous"

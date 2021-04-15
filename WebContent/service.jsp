@@ -68,6 +68,15 @@
         width: 1200px;
         table-layout: fixed;
       }
+      .bottom-bar {
+		background-color: black;
+		height: 80px;
+		text-align: center;
+		padding-top: 10px;
+		font-size: 20px;
+		color: white;
+		margin-top: 100px;
+	  }
     </style>
 </HEAD>
 <BODY>
@@ -170,13 +179,13 @@
         </thead>
         <tbody>
           <tr>
-            <td class="content"><p>2021.04.20</p></td>
+            <td class="content"><p>2021.04.19</p></td>
             <td class="content" style = "cursor:pointer;" onClick = " location.href='notice01.jsp' " onMouseOver = " window.status = 'notice01.html' " onMouseOut = " window.status = '' ">
               <p>영정종 스토어 오픈 이벤트!</p>
             </td>
           </tr>
           <tr>
-            <td class="content"><p>2021.04.09</p></td>
+            <td class="content"><p>2021.04.18</p></td>
             <td class="content" style = "cursor:pointer;" onClick = " location.href='notice02.jsp' " onMouseOver = " window.status = 'notice02.html' " onMouseOut = " window.status = '' ">
             <p>영정종 스토어 오픈예정</p>
           </td>
@@ -226,6 +235,12 @@
           </tr>
         </tbody>
     </table>
+    
+    <div>
+      <section class="bottom-bar">
+        2021 OpenSource Web-Software, Made by YYJ, KJH, KJS </br> @ Copyright 2021. 양영재. ALL RIGHTS RESERVED.
+      </section>
+    </div>
 
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"
