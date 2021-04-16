@@ -295,8 +295,6 @@
 			<%
 			}
 		  %>
-            
-            <button class="btn_pur">구매하기</button>
           </div>
         </div>
       </div>

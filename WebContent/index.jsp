@@ -86,6 +86,22 @@
 	  	background-color: black;
 	  	height: 50px;
 	  }
+	  .u_title {
+	  	margin-left: 30px;
+	  }
+	  .u_title2 {
+	  	margin-right: 20px;
+	  }
+	  .mc {
+	  	margin-left: 200px;
+	  }
+	  .mc2 {
+	  	margin-left: 200px;
+	  }
+	  .under_card2 {
+	  	width: 420px;
+	  	background-color: white;
+	  }
     </style>
 </HEAD>
 <BODY>
@@ -250,21 +266,21 @@
           </div>
         </div>
         <div class="col">
-          <div class="card card-cover">
+          <div class="card card-cover mc2">
             <div>
-              <div class="juice product">
+              <div class="juice product under_card2">
                 <a href="juice.jsp"><img src="./img/juice.JPG" /></a>
-                <span id="title">ÁÖ½º</span>
+                <span class="u_title">ÁÖ½º</span>
               </div>
             </div>
           </div>
         </div>
         <div class="col">
-          <div class="card card-cover">
+          <div class="card card-cover mc">
             <div>
-              <div class="salad product">
-                <a href="salad.jsp"><img src="./img/salad.JPG" /></a>
-                <span id="title">¼¿·¯µå</span>
+              <div class="salad product under_card2">
+                <a href="salad.jsp"><img src="./img/salad.JPG"/></a>
+                <span class="u_title2">»ø·¯µå</span>
               </div>
             </div>
           </div>

@@ -90,6 +90,11 @@
 	  	margin-left: 550px;
 	  	font-size: 50px;
 	  }
+	  .total_price {
+	  	margin-left: 450px;
+	  	margin-top: 300px;
+	  	font-size: 40px;
+	  }
     </style>
 </HEAD>
 <BODY>
@@ -196,6 +201,7 @@
 	
 	int rows = cartDAO.GetCartcount(userID);
 
+	int totalprice = 0;
 	int count = 0;
 	int index = 0;
 	int i= 0;
@@ -213,6 +219,7 @@
     	productid[i] = rs.getString("productid");
         price[i] = rs.getString("price");
         tag[i] = rs.getString("tag");
+        totalprice = totalprice + Integer.parseInt(price[i]);
         i++;
     }
     
@@ -261,7 +268,7 @@
     }
  }
    %>
-	<h2>장바구니</h2>
+	<h2>구매내역</h2>
 	<div class="cart_table">
 		<table>
 		
@@ -271,8 +278,6 @@
 	        <col width="20%" />
 	        <col width="20%" />
 	        <col width="10%" />
-	        <col width="10%" />
-	        <col width="10%" />
 	      </colgroup>
 		<thead>
 		  <tr class="cart_head">
@@ -280,9 +285,6 @@
 	           <th>상품 이미지</th>
 		       <th>상품정보</th>
 		       <th>상품금액</th>
-		       <th>구매자</th>
-		       <th>상품 선택</th>
-		       <th>삭제</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -292,15 +294,11 @@
 	          <td><img src="<%=img[i]%>" width="320px" height="200px"></td>
 	          <td><%=productname[i] %></td>
 	          <td><%=price[i] %>원</td>
-	          <td>${userID}</td>
-	          <td><input type="checkbox" /></td> 
-	          <td>
-	   			<button type="button" onclick="location.href='./delete.jsp?index=<%=price[i]%>'">삭제</button></td>
 	        </tr> 
 		 <%}%>
 		</tbody>
 		</table>
-			<button class="buy_btn" onclick="location.href='./move_to_list.jsp'">구매하기</button>
+			<span class="total_price">총 가격 : <%=totalprice %>원</span>
 		</div>
 		
  <div>

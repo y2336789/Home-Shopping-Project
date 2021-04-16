@@ -86,4 +86,21 @@ public class CartDAO {
 		System.out.println("버그");
 		return rs;
 	}
+	public ResultSet DeleteCartData(String price) {
+		String SQL = "DELETE FROM cart WHERE name=wkwk";
+		
+		try {
+			pstmt = conn.prepareStatement(SQL); // pstmt에 받아오고
+			rs = pstmt.executeQuery(); // SQL 결과 값을 받와서 rs에 저장!
+			return rs;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("버그");
+		}
+		System.out.println("버그");
+		return rs;
+	}
+	
+	
+	
 }

@@ -1,14 +1,14 @@
 package cart;
 
 public class Cart {
-	private int cartID;
+	private String cartID;
 	private String userID;
 	private String tag;
 	private String productID;
 	private String price;
 	private String productImg;
 	
-	public int getcartID() {
+	public String getcartID() {
 		return cartID;
 	}
 	public String getuserID() {

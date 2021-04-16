@@ -139,7 +139,6 @@
 			color: white;
 			margin-top: 100px;
 		}
-      
     </style>
 </HEAD>
 <BODY>
@@ -212,7 +211,19 @@
 			<%
 		}
 	  %></span>
-      <span>장바구니</span>
+      <span><%
+		if(session.getAttribute("userID") != null){
+			userID=(String)session.getAttribute("userID");
+			%>
+			<span class="ab_mypage"><a href="./Cart.jsp">장바구니</a></span>
+			<%
+		}
+		else{
+			%>
+			<span class="ab_mypage"><a href="./login.html">장바구니</a></span>
+			<%
+		}
+	  %></span>
     </div>
     	
     <% 
@@ -223,7 +234,6 @@
     	int count = 0;
     	int index = 0;
   	%>
-  	
   	<%  
   	    String findex = request.getParameter("index");
   		String tag = request.getParameter("tag");
@@ -287,8 +297,6 @@
 			<%
 			}
 		  %>
-            
-            <button class="btn_pur">구매하기</button>
           </div>
         </div>
       </div>

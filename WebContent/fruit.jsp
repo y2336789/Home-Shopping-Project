@@ -49,6 +49,9 @@
       .ab_mypage a{
         color: black;
       }
+      .bottom-bar {
+      	margin-top: 100px;
+      }
     </style>
 </HEAD>
 <BODY>
@@ -136,7 +139,7 @@
 	  %></span>
     </div>
     <div class="trademark">
-      <img src="img/trademark.PNG" width="400" height="200" />
+      <img src="img/mark1.PNG" width="500" height="500" />
     </div>
     <!-- 상품 목록 화면 -->
     
@@ -198,9 +201,6 @@
         2021 OpenSource Web-Software, Made by YYJ, KJH, KJS </br> @ Copyright 2021. 양영재. ALL RIGHTS RESERVED.
       </section>
     </div>
-  	
-
-    
     <script
       src="https://kit.fontawesome.com/0df657c80e.js"
       crossorigin="anonymous"
